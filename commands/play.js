@@ -19,7 +19,7 @@ exports.run = async(music, message, args, queue) => {
   let fotinha = message.mentions.users.first() ? message.mentions.users.first().avatarURL : message.author.avatarURL
 const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) return message.channel.send('Me desculpe, mas você precisa estar em um canal de voz para tocar música!');
-    if (searchString <1) return message.reply("<a:god:434536918424748037>Você não colocou o nome da música ou url.");
+    if (searchString <1) return message.reply("<:PandaUh:447055990760931329> Você deve especificar o nome da música ou adiciona rum URL.");
     
     const permissions = voiceChannel.permissionsFor(music.user);
     if (!permissions.has('CONNECT')) {
@@ -36,7 +36,7 @@ const voiceChannel = message.member.voiceChannel;
         const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
         await handleVideo(video2, message, voiceChannel, true); // eslint-disable-line no-await-in-loop
       }
-      return message.channel.send(`<:trust:441980343889821716> **${playlist.title}** foi adicionado à fila po ${message.author.username} `);
+      return message.channel.send(`<:trust:447056422346424320> **${playlist.title}** foi adicionado à fila po ${message.author.username} `);
     } else {
       try {
         var video = await youtube.getVideo(url);
@@ -47,7 +47,7 @@ const voiceChannel = message.member.voiceChannel;
           
           
           const embed = new Discord.RichEmbed()
-          .setTitle("<:icon_yt:441980272267886592> Selecione uma música <:icon_yt:441980272267886592>")
+          .setTitle("<:movie_play_light_green:447056994398896159> Selecione uma música <:movie_play_light_green:447056994398896159>")
           .setDescription(videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n'))
           .setFooter("Defina um valor para selecionar a música entre 1 a 10!")
           .setColor(0x4959e9)
@@ -64,7 +64,7 @@ const voiceChannel = message.member.voiceChannel;
           } catch (err) {
             console.error(err);
             const noPick = new Discord.RichEmbed()
-            .setDescription("O tempo expirou ou o arquivo é inválido! `Cancelado a seleção de Música.")
+            .setDescription("O tempo expirou ou o arquivo é inválido! `Cancelado a seleção de Música...`")
             message.channel.send({embed: noPick});
             msgtoDelete.delete()
             return;
@@ -128,7 +128,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     else return message.channel.send({
       embed: {
     color: 0x4959e9,
-    description: `<:icon_yt:441980272267886592> ** [${v.title}](${v.url}) ** foi adicionado por **${message.author.username} **`,
+    description: `<:movie_play_light_green:447056994398896159> ** [${v.title}](${v.url}) ** foi adicionado por **${message.author.username} **`,
     "thumbnail": {
             "url": v.thumbnail
     },
@@ -182,13 +182,13 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     const embed2 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
@@ -202,13 +202,13 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
     const embed3 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
@@ -222,13 +222,13 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
 const embed4 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
@@ -241,13 +241,13 @@ const embed4 = new Discord.RichEmbed()
      const embed5 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
@@ -260,13 +260,13 @@ const embed4 = new Discord.RichEmbed()
         const embed6 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
@@ -278,13 +278,13 @@ const embed4 = new Discord.RichEmbed()
  const embed7 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
@@ -295,13 +295,13 @@ const embed4 = new Discord.RichEmbed()
         const embed8 = new Discord.RichEmbed()
       
          .setAuthor(o, fotinha)
-         .setDescription(`<:icon_yt:441980272267886592> [${v.title}](${v.url})`)
-         .addField('<:timer2:441990582567698432> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
+         .setDescription(`<:movie_play_light_green:447056994398896159> [${v.title}](${v.url})`)
+         .addField('<:timer2:447058881802141697> Duração',"00:00/"+`${song.durationm}:${durations}`,true)
          .addField(':eyes: Visualizações:', Number(v.views).toLocaleString(),true)
         
-         .addField('<:gostei:441987812011671553> Gostei', Number(v.likeCount).toLocaleString(),true)
-         .addField('<:gostein:441988132527669270> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
-         .addField("<:comments:441988570815791115> Comentarios:", Number(v.commentCount).toLocaleString())
+         .addField('<:gostei:447057956983406593> Gostei', Number(v.likeCount).toLocaleString(),true)
+         .addField('<:gostein:447057938969001984> Não gostei', Number(v.dislikeCount).toLocaleString(),true)
+         .addField("<:comments:444601848289165323> Comentários:", Number(v.commentCount).toLocaleString())
          .setThumbnail(v.thumbnailUrl)
          .setTimestamp()
          .setFooter( message.guild.name , message.guild.iconURL )
