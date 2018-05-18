@@ -1,2 +1,2 @@
-# reth-bot-test
-bot usando heroku
+# sysop partners
+para parceiros
