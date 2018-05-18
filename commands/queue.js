@@ -19,7 +19,7 @@ exports.run = async(client, message, args, queue) => {
     if (!serverQueue) return message.channel.send('Não há nada tocando! Adicione algumas músicas para tocar usando: sy!play `<Músicas>`');
     
     const queueInfo = new Discord.RichEmbed()
-    .setTitle("<a:som:442171356298215434> Músicas na fila <a:som:442171356298215434>")
+    .setTitle("<a:som:442714622169186316> Músicas na fila <a:som:442714622169186316>")
     .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).slice(0, 16).join('\n')}`)
     .setFooter("Tocando agora: " + serverQueue.songs[0].title)
     .setColor(0x4959e9)
