@@ -15,8 +15,8 @@ exports.run = async(client, message, args, queue) => {
 	const url = args1[1] ? args1[1].replace(/<(.+)>/g, '$1') : '';
 	const serverQueue = queue.get(message.guild.id);
 
-if (!message.member.voiceChannel) return message.channel.send('Você não está em um canal de voz! <a:tiltou:434536849877499916>');
-		if (!serverQueue) return message.channel.send("Eu não posso fazer nada? <a:tiltou:434536849877499916>");
+if (!message.member.voiceChannel) return message.channel.send('Você não está em um canal de voz! :thinking:');
+		if (!serverQueue) return message.channel.send("Eu não posso fazer nada? :thinking:");
       		serverQueue.connection.dispatcher.end('O comando Skip foi usado!');
 		return undefined;
 
@@ -50,13 +50,13 @@ if (!message.member.voiceChannel) return message.channel.send('Você não está 
         } catch (error) {
           console.error(`Eu não pude entrar no canal de voz: ${error}`);
           queue.delete(message.guild.id);
-          return message.channel.send(`<a:not:436709418097442826> Eu não pude entrar no canal de voz: ${error}`);
+          return message.channel.send(`:x: Eu não pude entrar no canal de voz: ${error}`);
         }
       } else {
         serverQueue.songs.push(song);
         console.log(serverQueue.songs);
         if (playlist) return undefined;
-        else return message.channel.send(`<:trust:436717162632052753> **${song.title}** foi adicionado à fila!`);
+        else return message.channel.send(`<:trust:447056422346424320> **${song.title}** foi adicionado à fila!`);
       }
       return undefined;
     }
@@ -83,7 +83,7 @@ if (!message.member.voiceChannel) return message.channel.send('Você não está 
             .on('error', error => console.error(error));
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
     
-        serverQueue.textChannel.send(`<:trust:436717162632052753 Começou a tocar: **${song.title}**`);
+        serverQueue.textChannel.send(`<:trust:447056422346424320> Começou a tocar: **${song.title}**`);
     }
     }
 
