@@ -95,4 +95,4 @@ exports.help = {
     description: "Stops the music playing and removes all the songs from the queue",
     usage: "pr!stop",
     note: "Removes all the song from the queue"
-}
+} 
