@@ -59,7 +59,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     serverQueue.songs.push(song);
     console.log(serverQueue.songs);
     if (playlist) return undefined;
-    else return message.channel.send(`<:trust:436717162632052753> **${song.title}** foi adicionado a fila!`);
+    else return message.channel.send(`<:trust:447056422346424320> **${song.title}** foi adicionado a fila!`);
   }
   return undefined;
 }
@@ -86,7 +86,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .on('error', error => console.error(error));
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-    serverQueue.textChannel.send(`<a:on:436709383255359498>  Tocando agora: **${song.title}**`);
+    serverQueue.textChannel.send(`<a:som:442714622169186316> Tocando agora: **${song.title}**`);
 }
 }
 
