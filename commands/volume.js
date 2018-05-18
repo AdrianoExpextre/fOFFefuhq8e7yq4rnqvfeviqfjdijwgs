@@ -18,13 +18,13 @@ exports.run = async(client, message, args,  queue) => {
 
     if (!message.member.voiceChannel) return message.channel.send('Você não está em um canal de voz! :loud_sound:');
 		if (!serverQueue) return message.channel.send('Não há nada tocando.');
-		if (!args1[1]) return message.channel.send(`<a:volume:442395849931096075> O volume atual é: **${serverQueue.volume}**`);
+		if (!args1[1]) return message.channel.send(`:loud_sound:  O volume atual é: **${serverQueue.volume}**`);
 		serverQueue.volume = args1[1];
     if (args1[1] > 10) return message.channel.send(':no_entry_sign: O limite `10` foi atingido!');
         serverQueue.connection.dispatcher.setVolumeLogarithmic(args1[1] / 10);
         
         let vEmbed = new Discord.RichEmbed()
-        .setDescription(`<a:volume:442395849931096075> Volume configurado para: **${args1[1]}**`)
+        .setDescription(`:loud_sound:  Volume configurado para: **${args1[1]}**`)
         .setColor(0x4959e9)
         
         message.channel.send(vEmbed);
@@ -64,7 +64,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     serverQueue.songs.push(song);
     console.log(serverQueue.songs);
     if (playlist) return undefined;
-    else return message.channel.send(`<:trust:436717162632052753> **${song.title}** foi adicionado à fila!`);
+    else return message.channel.send(`<:trust:447056422346424320> **${song.title}** foi adicionado à fila!`);
   }
   return undefined;
 }
@@ -91,7 +91,7 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
         .on('error', error => console.error(error));
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 10);
 
-    serverQueue.textChannel.send(`<a:on:436709383255359498>  Começou a tocar: **${song.title}**`);
+    serverQueue.textChannel.send(`<a:som:442714622169186316> Começou a tocar: **${song.title}**`);
 }
 }
 
