@@ -47,7 +47,7 @@ music.on('message', async message => {
         console.log(`${message.author.username} Usou o comando:   ${cmd}, na guild: ${message.guild.name}`);
 	}
 });
-music.login(process.env.TOKEN);
+music.login(process.env.t);
 
 
 music.on('ready', async () => {
