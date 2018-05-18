@@ -21,6 +21,16 @@ fs.readdir("./commands/", (err, files) => {
 	});
 });
 
+client.on("ready", (message) => {
+client.user.setPresence({
+        status: 'dnd',
+        game: {
+            name: `Sysop Partners`,
+            url: 'https://www.twitch.tv/adrianocruz1105'
+        }
+});
+});
+
 music.on('message', async message => {
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 	  if (!prefixes[message.guild.id]) {
