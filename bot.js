@@ -21,8 +21,8 @@ fs.readdir("./commands/", (err, files) => {
 	});
 });
 
-client.on("ready", (message) => {
-client.user.setPresence({
+music.on("ready", (message) => {
+music.user.setPresence({
         status: 'dnd',
         game: {
             name: `Sysop Partners`,
