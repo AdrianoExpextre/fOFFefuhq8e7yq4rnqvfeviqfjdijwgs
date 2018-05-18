@@ -23,4 +23,4 @@ exports.run = async(music, message, args) => {
          }).catch(error => message.channel.send(error));
      }).catch(error => message.channel.send(error));
     }
-}};
+};
