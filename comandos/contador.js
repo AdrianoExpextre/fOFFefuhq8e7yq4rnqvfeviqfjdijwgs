@@ -2,7 +2,7 @@ const db = require('../database.js');
 
 module.exports = { task(client, message, suffix) { message.delete(1000); 
 
-database.Bloqueio.findOne({
+db.Bloqueio.findOne({
                 "_id": message.author.id
             }, function (erro, documento) {
                 if(documento) {
