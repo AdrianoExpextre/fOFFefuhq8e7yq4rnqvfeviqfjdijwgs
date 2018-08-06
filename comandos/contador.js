@@ -21,17 +21,9 @@ return message.reply(`Contador, como usar:\nUse \`sy!contador\` on <#channel> pa
 
 
 db.Guilds.findOne({"_id": message.guild.id}, function(erra, sysop) {
-    if (!sysop) {
-        
-        var server = new db.Guilds({
-            _id: message.guild.id,
-             contador: '',
-             texto: '' ,
-        });
-        server.save();
-        message.reply("💥 Use o comando novamente");
-    } else {
-        
+    if (sysop) {
+  
+
 switch (suffix.split(' ')[0]){
 	
 case 'on': {
@@ -58,7 +50,16 @@ sysop.contador = "nada";
 sysop.save();
 message.channel.send('Contador desativado.');
         
- }}
-}});
+}}} else  {
+           
+        var server = new db.Guilds({
+            _id: message.guild.id,
+             contador: '',
+             texto: '' ,
+        });
+        server.save();
+        message.reply("💥 Use o comando novamente");
+ }
 });
+})
 }};
