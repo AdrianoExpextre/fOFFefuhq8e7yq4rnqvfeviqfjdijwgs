@@ -114,7 +114,9 @@ database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 if (!sysop)  return;
 if (!sysop.autorole) return;	
 if(!sysop.contador) return;
-if(!sysop.texto) return;	
+if(!sysop.texto) return;
+if(!Guardian.guilds.get(member.guild.id).channels.get(sysop.contador)) return;
+	
 if (sysop) {	
 member.addRole(sysop.autorole)
 sysop.save();
@@ -135,6 +137,7 @@ database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 	
 if(!sysop.contador) return;
 if (!sysop.texto) return;
+if(!Guardian.guilds.get(member.guild.id).channels.get(sysop.contador)) return;	
 if (!sysop) {
 let nw =  `${Guardian.guilds.get(member.guild.id).memberCount}`
     
