@@ -122,7 +122,7 @@ sysop.save();
 let nw =  `${Guardian.guilds.get(member.guild.id).memberCount}`
     
 let aus = nw.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
-Guardian.channels.get(sysop.contador).edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${aus} ${sysop.texto}`})
+Guardian.guilds.get(member.guild.id).channels.get(sysop.contador).edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${aus} ${sysop.texto}`})
 
 
 }
@@ -139,7 +139,7 @@ if (!sysop) {
 let nw =  `${Guardian.guilds.get(member.guild.id).memberCount}`
     
 let aus = nw.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
-Guardian.channels.get(sysop.contador).edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${aus} ${sysop.texto}`})
+Guardian.guilds.get(member.guild.id).channels.get(sysop.contador).edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${aus} ${sysop.texto}`})
 	}
 });
 });
