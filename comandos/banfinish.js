@@ -84,6 +84,6 @@ if (user) {
     message.reply('Não encontrei nenhum usuário');
 
 }
-    
+})
 }
 };
