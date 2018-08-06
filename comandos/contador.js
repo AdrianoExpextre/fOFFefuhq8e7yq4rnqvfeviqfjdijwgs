@@ -60,4 +60,5 @@ message.channel.send('Contador desativado.');
         
  }}
 }});
+});
 }};
