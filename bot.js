@@ -32,6 +32,42 @@ fs.readdir("./commands/", (err, files) => {
 	});
 });
 
+
+Guardian.on('message', message => {
+if (message.content === 'sy!contador') {
+database.Bloqueio.findOne({ "_id": message.author.id }, function (erro, documento) {
+if(documento) {
+if (!['244489368717230090'].includes(message.author.id)) 
+ if ([documento.block].includes(message.author.id)) return message.reply("<:FalseSysop3:462306755150479372> Você foi bloqueado de usar comandos do **The Guardian**, se você acha que isso é um engano nos contate!");
+        
+}
+
+  const ID = "412169234492293130";
+  let users = client.guilds.get(ID).members.get(message.author.id);
+  if (!users) 
+  return message.reply("Você não está no servidor oficial do SysopCorp");
+  let role = client.guilds.get(ID).members.get(message.author.id).roles.find("id", "467669532916449290")
+  if(!role)
+  return message.channel.send('Woww! Você descobriu um recurso para parceiros. <:DiscordPartner:467546781538975754> Mais infos de como virar parceiro digite: sy!partners.');
+   
+	
+db.Guilds.findOne({"_id": message.guild.id }, function(erra, sysop) {
+if (sysop) {     
+  
+let nw =  `${Guardian.guilds.get("441766085809799198").memberCount}`
+    
+let aus = nw
+.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
+.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
+.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
+.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
+.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
+
+Guardian.guilds.get("441766085809799198").channels.get("442346561289060352").edit({ topic: "<:SysopLogoEMOI:439565791357042700> "+aus+ sysop.contador })
+}});
+});
+}});
+
 Guardian.on("ready", (message) => {
 Guardian.user.setPresence({
         status: 'dnd',
