@@ -107,7 +107,7 @@ var embed = new Discord.RichEmbed()
 });
 
 Guardian.on("ready", () => {
-   logger.logWithHeader('Estamos online!', 'bgRed', 'black',  `Online! S:${client.guilds.size} | U:${Guardian.users.size}`);
+   logger.logWithHeader('Estamos online!', 'bgRed', 'black',  `Online! S:${Guardian.guilds.size} | U:${Guardian.users.size}`);
     var statusIDO = ["idle", "dnd"]
  
     var jogando = [`Alegria`, `AMOOR`, `Comandos? sy!help`, `para ${Guardian.guilds.size} servidores`]
