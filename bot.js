@@ -36,7 +36,7 @@ Guardian.on("ready", (message) => {
 Guardian.user.setPresence({
         status: 'dnd',
         game: {
-            name: `Sysop Partners`,
+            name: `Segurança Máxima!`,
             url: 'https://www.twitch.tv/adrianocruz1105'
         }
 });
