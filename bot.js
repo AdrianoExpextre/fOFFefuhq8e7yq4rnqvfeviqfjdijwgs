@@ -33,7 +33,22 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 
+Guardian.on('message', message => {
+if (message.content === ''-'') {
+if (!['244489368717230090'].includes(message.author.id)) return;
 
+database.Guilds.findOne({"_id": message.guild.id }, function(erra, sysop) {
+
+if (sysop) {	
+
+let nha =  `${Guardian.guilds.get('459794576627073024').memberCount}`
+let nain = nha.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
+Guardian.channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${nain} ${sysop.texto}`})
+ message.reply(`Boa noite chefe.`); 
+  
+}});
+
+}});
 
 Guardian.on("ready", (message) => {
 Guardian.user.setPresence({
