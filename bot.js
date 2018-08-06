@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
-const music = new Discord.Client({disableEveryone: true});
+const Guardian = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 const cfg = require("./config.json");
 
-music.commands = new Discord.Collection();
+Guardian.commands = new Discord.Collection();
 const queue = new Map();
 
 fs.readdir("./commands/", (err, files) => {
@@ -21,8 +21,8 @@ fs.readdir("./commands/", (err, files) => {
 	});
 });
 
-music.on("ready", (message) => {
-music.user.setPresence({
+Guardian.on("ready", (message) => {
+Guardian.user.setPresence({
         status: 'dnd',
         game: {
             name: `Sysop Partners`,
@@ -31,7 +31,7 @@ music.user.setPresence({
 });
 });
 
-music.on('message', async message => {
+Guardian.on('message', async message => {
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 	  if (!prefixes[message.guild.id]) {
 		prefixes[message.guild.id] = {
@@ -50,16 +50,16 @@ music.on('message', async message => {
     
     try {
         let commandFile = require(`./commands/${cmd}.js`); 
-        commandFile.run(music, message, args, queue); 
+        commandFile.run(Guardian, message, args, queue); 
     } catch(e) { 
         console.log("atá"); 
     } finally { 
         console.log(`${message.author.username} Usou o comando:   ${cmd}, na guild: ${message.guild.name}`);
 	}
 });
-music.login(process.env.t);
+Guardian.login(process.env.Secrect);
 
 
-music.on('ready', async () => {
-    console.log(`${music.user.username} está on!`);
+Guardian.on('ready', async () => {
+    console.log(`${Guardian.user.username} está on!`);
 });
