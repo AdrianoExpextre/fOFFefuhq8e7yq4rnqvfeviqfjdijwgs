@@ -242,6 +242,10 @@ var Guilds = new Schema({
       type: String,
       default: '',
     },
+    texto: {
+      type: String,
+      default: '',
+    },
     autorole: {
       type: String,
       default: '',
