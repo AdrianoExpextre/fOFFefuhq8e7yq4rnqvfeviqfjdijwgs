@@ -183,7 +183,7 @@ database.Guilds.findOne({"_id": message.guild.id}, function(erra, sysop) {
 if (sysop) {
 if (sysop && sysop.convites && message.content.search('discord.gg') > -1) {	
 message.delete();
-return message.channel.send(`<:FalseSysop3:462306755150479372> | ${message.author} Você não pode enviar convites de outros servidores aqui!`).then(sentMsg => sentMsg.delete(60000));
+return message.channel.send(`<:xguardian:476061993368027148> | ${message.author} Você não pode enviar convites de outros servidores aqui!`).then(sentMsg => sentMsg.delete(60000));
 }}
 });
 }
@@ -195,7 +195,7 @@ database.Guilds.findOne({"_id": oldMessage.guild.id}, function(erro, sysop) {
 if (sysop) {
 if (sysop && sysop.convites && oldMessage.content.search('discord.gg') > -1) {
 oldMessage.delete();
-return newMessage.channel.send(`<:FalseSysop3:462306755150479372> | ${newMessage.author} Você não pode enviar convites de outros servidores aqui!`).then(sentMsg => sentMsg.delete(60000)) 
+return newMessage.channel.send(`<:xguardian:476061993368027148> | ${newMessage.author} Você não pode enviar convites de outros servidores aqui!`).then(sentMsg => sentMsg.delete(60000)) 
 }}
 });
 }
