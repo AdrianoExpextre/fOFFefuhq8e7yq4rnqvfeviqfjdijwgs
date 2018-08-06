@@ -3,7 +3,6 @@ const Guardian = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 const cfg = require("./config.json");
 const config  = require("./config.json");
-const fs      = require("fs");
 const YTDL = require('ytdl-core');
 var database = require("./database.js");
 const db = require('quick.db');
