@@ -106,21 +106,6 @@ var embed = new Discord.RichEmbed()
     
 });
 
-Guardian.on("ready", () => {
-   logger.logWithHeader('Estamos online!', 'bgRed', 'black',  `Online! S:${Guardian.guilds.size} | U:${Guardian.users.size}`);
-    var statusIDO = ["idle", "dnd"]
- 
-    var jogando = [`Alegria`, `AMOOR`, `Comandos? sy!help`, `para ${Guardian.guilds.size} servidores`]
-
-    
-    Guardian.user.setGame(jogando[Math.round(Math.random() * jogando.length - 1)], "https://www.twitch.tv/adrianocruz1105")
-    Guardian.user.setStatus(statusIDO[Math.round(Math.random() * statusIDO.length - 1)]);
-    Guardian.guilds.get("441766085809799198").members.map(a =>
-    setInterval(() => {
-        Guardian.user.setGame(jogando[Math.round(Math.random() * jogando.length - 1)], "https://www.twitch.tv/adrianocruz1105")
-        Guardian.user.setStatus(statusIDO[Math.round(Math.random() * statusIDO.length - 1)])}, 1 * 1000 * 60));
-});
-
 Guardian.on('guildMemberAdd', member => {
 database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 if (!sysop)  return;
