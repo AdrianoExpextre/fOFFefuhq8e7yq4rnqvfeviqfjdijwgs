@@ -79,6 +79,6 @@ if (user) {
     message.reply('<:FalseSysop3:462306755150479372> Não encontrei nenhum usuário. Talvez ele não esteja em nenhum servidor compartilhado comigo.');
 
 }
-    
+})
 }
 };
