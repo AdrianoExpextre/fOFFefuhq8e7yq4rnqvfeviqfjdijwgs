@@ -113,9 +113,7 @@ Guardian.on('guildMemberAdd', member => {
 database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 if (!sysop)  return;
 if (!sysop.autorole) return;	
-if(!sysop.contador) return;
 if(!sysop.texto) return;
-if(!Guardian.guilds.get(member.guild.id).channels.get(sysop.contador)) return;
 	
 if (sysop) {	
 member.addRole(sysop.autorole)
@@ -134,10 +132,9 @@ Guardian.guilds.get(member.guild.id).channels.get(sysop.contador).edit({ topic: 
 Guardian.on('guildMemberRemove', member => {
 database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 //contador
-	
-if(!sysop.contador) return;
+
+if (!sysop)  return;
 if (!sysop.texto) return;
-if(!Guardian.guilds.get(member.guild.id).channels.get(sysop.contador)) return;	
 if (!sysop) {
 let nw =  `${Guardian.guilds.get(member.guild.id).memberCount}`
     
