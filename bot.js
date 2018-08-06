@@ -117,7 +117,7 @@ sysop.save();
 });
 });
 
-Guardian.on('guildMemberAdd', member => { 
+/*Guardian.on('guildMemberAdd', member => { 
   database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
     if(!sysop) return;
     if(!sysop.welcome) return;
@@ -169,7 +169,7 @@ var embed = new Discord.RichEmbed()
 Guardian.guilds.get(member.guild.id).channels.get(sysop.logger).send(embed)
     }
   })
-});
+});*/
 
 
 
