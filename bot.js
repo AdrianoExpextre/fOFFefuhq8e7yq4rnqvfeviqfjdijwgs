@@ -28,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
 
 	jsfile.forEach((f, i) => {
 		let props = require(`./commands/${f}`);
-		music.commands.set(props.help.name, props);
+		Guardian.commands.set(props.help.name, props);
 	});
 });
 
