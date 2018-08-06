@@ -1,2 +1,2 @@
-# sysop partners
+# The Guardian
 para parceiros
