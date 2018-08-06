@@ -1,6 +1,6 @@
 const db = require('../database.js');
 
-module.exports = { task(client, message, suffix) { message.delete(1000); 
+module.exports = { task(Guardian, message, suffix) { message.delete(1000); 
 
 db.Bloqueio.findOne({
                 "_id": message.author.id
