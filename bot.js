@@ -117,9 +117,9 @@ if (sysop) {
 member.addRole(sysop.autorole)
 sysop.save();
 	
-let nha =  `${Guardian.guilds.get('475549208225775649').memberCount}`
+let nha =  `${Guardian.guilds.get(member.guild.id).memberCount}`
 let nain = nha.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
-Guardian.guilds.get('459794576627073024').channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${nain} ${sysop.texto}`})
+Guardian.channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${nain} ${sysop.texto}`})
 
 
 }
@@ -131,9 +131,9 @@ database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 //contador
 	
 if (!sysop) {
-let nha =  `${Guardian.guilds.get('475549208225775649').memberCount}`    
+let nha =  `${Guardian.guilds.get(member.guild.id).memberCount}`    
 let nain = nha.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
-Guardian.guilds.get('459794576627073024').channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${nain} ${sysop.texto}`})
+Guardian.channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${nain} ${sysop.texto}`})
 	
 
 }
