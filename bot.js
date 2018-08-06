@@ -33,26 +33,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 
-Guardian.on('message', message => {
-if (message.content === 'sy!contador') {
-database.Bloqueio.findOne({ "_id": message.author.id }, function (erro, documento) {
-if(documento) {
-if (!['244489368717230090'].includes(message.author.id)) 
- if ([documento.block].includes(message.author.id)) return message.reply("<:FalseSysop3:462306755150479372> Você foi bloqueado de usar comandos do **The Guardian**, se você acha que isso é um engano nos contate!");
-        
-}
 
-  const ID = "412169234492293130";
-  let users = Guardian.guilds.get(ID).members.get(message.author.id);
-  if (!users) 
-  return message.reply("Você não está no servidor oficial do SysopCorp");
-  let role = Guardian.guilds.get(ID).members.get(message.author.id).roles.find("id", "467669532916449290")
-  if(!role)
-  return message.channel.send('Woww! Você descobriu um recurso para parceiros. <:DiscordPartner:467546781538975754> Mais infos de como virar parceiro digite: sy!partners.');
-   
-}});
-});
-}});
 
 Guardian.on("ready", (message) => {
 Guardian.user.setPresence({
@@ -375,7 +356,7 @@ Guardian.reload = command => {
       Guardian.aliases.forEach((cmd, alias) => {
         if (cmd === command) Guardian.aliases.delete(alias);
       });
-      client.commands.set(command, cmd);
+      Guardian.commands.set(command, cmd);
       cmd.conf.aliases.forEach(alias => {
         Guardian.aliases.set(alias, cmd.help.name);
       });
@@ -436,7 +417,7 @@ Guardian.on('guildCreate', guild => {
     .setAuthor(guild.name, guild.iconURL)
     
         .setColor(0x4959e9)
-        .addField("GOD", `**O servidor: __${guild.name}__ >adicionou o bot ___${client.user.username}__: ** `)
+        .addField("GOD", `**O servidor: __${guild.name}__ >adicionou o bot ___${Guardian.user.username}__: ** `)
         .setThumbnail(guild.iconURL)
         .addField("Dono:",`<@${guild.ownerID}>`,true)
         .addField("Membros:",`${guild.members.size}`,true)
