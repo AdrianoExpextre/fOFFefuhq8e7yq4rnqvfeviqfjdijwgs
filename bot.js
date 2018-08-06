@@ -50,20 +50,6 @@ if (!['244489368717230090'].includes(message.author.id))
   if(!role)
   return message.channel.send('Woww! Você descobriu um recurso para parceiros. <:DiscordPartner:467546781538975754> Mais infos de como virar parceiro digite: sy!partners.');
    
-	
-db.Guilds.findOne({"_id": message.guild.id }, function(erra, sysop) {
-if (sysop) {     
-  
-let nw =  `${Guardian.guilds.get("441766085809799198").memberCount}`
-    
-let aus = nw
-.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
-.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
-.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
-.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
-.replace('0', ':zeroo:').replace('1', ':one:').replace('2', ':two:').replace('3', ':three:').replace('4', ':four:').replace('5', ':five:').replace('6', ':six:').replace('7', ':seven:').replace('8', ':eight:').replace('9', ':nine:')
-
-Guardian.guilds.get("441766085809799198").channels.get("442346561289060352").edit({ topic: "<:SysopLogoEMOI:439565791357042700> "+aus+ sysop.contador })
 }});
 });
 }});
@@ -149,6 +135,27 @@ if (!sysop.autorole) return;
 if (sysop) {	
 member.addRole(sysop.autorole)
 sysop.save();
+	
+//contador
+let nw =  `${Guardian.guilds.get(member.guild.id).memberCount}`
+    
+let aus = nw.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
+Guardian.channels.get(sysop.contador).edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${aus} ${sysop.texto}`})
+
+
+}
+});
+});
+
+Guardian.on('guildMemberRemove', member => {
+database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
+//contador
+let nw =  `${Guardian.guilds.get(member.guild.id).memberCount}`
+    
+let aus = nw.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
+Guardian.channels.get(sysop.contador).edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${aus} ${sysop.texto}`})
+
+
 }
 });
 });
