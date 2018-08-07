@@ -132,16 +132,16 @@ if (sysop) {
 member.addRole(sysop.autorole)
 sysop.save();
 	
-let nha =  `${Guardian.guilds.get(member.guild.id).memberCount}`
+/*let nha =  `${Guardian.guilds.get(member.guild.id).memberCount}`
 let nain = nha.replace(/0/gi, ':zero:').replace(/1/gi, ':one:').replace(/2/gi, ':two:').replace(/3/gi, ':three:').replace(/4/gi, ':four:').replace(/5/gi, ':five:').replace(/6/gi, ':six:').replace(/7/gi, ':seven:').replace(/8/gi, ':eight:').replace(/9/gi, ':nine:');
 Guardian.channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:439565791357042700> | ${nain} `})
 
-
+*/
 }
 });
 });
 
-Guardian.on('guildMemberRemove', member => {
+/*Guardian.on('guildMemberRemove', member => {
 database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
 //contador
 
@@ -153,7 +153,7 @@ Guardian.channels.get('475549208225775649').edit({ topic: `<:SysopLogoEMOI:43956
 
 }
 });
-});
+});*/
 
 /*Guardian.on('guildMemberAdd', member => { 
   database.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
