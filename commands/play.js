@@ -42,7 +42,7 @@ const voiceChannel = message.member.voiceChannel;
         var video = await youtube.getVideo(url);
       } catch (error) {
         try {
-          var videos = await youtube.searchVideos(searchString, 10);
+          var videos = await youtube.searchVideos(searchString, 5);
           let index = 0;
           
           
@@ -52,7 +52,7 @@ const voiceChannel = message.member.voiceChannel;
           .setFooter("Defina um valor para selecionar a música entre 1 a 10!")
           .setColor(0x4959e9)
           
-          let msgtoDelete = await message.channel.send({embed: embed});
+          let msgtoDelete = await message.channel.send(`**Selecione uma música da lista**\n\n${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}`);
           // eslint-disable-next-line max-depth
           try {
             var response = await message.channel.awaitMessages(message2 => message2.content > 0 && message2.content < 11, {
