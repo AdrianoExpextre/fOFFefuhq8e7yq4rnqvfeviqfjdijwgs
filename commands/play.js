@@ -46,11 +46,11 @@ const voiceChannel = message.member.voiceChannel;
           let index = 0;
           
           
-          const embed = new Discord.RichEmbed()
+        /*  const embed = new Discord.RichEmbed()
           .setTitle("<:movie_play_light_green:447056994398896159> Selecione uma música <:movie_play_light_green:447056994398896159>")
           .setDescription(videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n'))
           .setFooter("Defina um valor para selecionar a música entre 1 a 10!")
-          .setColor(0x4959e9)
+          .setColor(0x4959e9)*/
           
           let msgtoDelete = await message.channel.send(`**Selecione uma música da lista**\n\n${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}`);
           // eslint-disable-next-line max-depth
@@ -63,9 +63,9 @@ const voiceChannel = message.member.voiceChannel;
             msgtoDelete.delete();
           } catch (err) {
             console.error(err);
-            const noPick = new Discord.RichEmbed()
-            .setDescription("O tempo expirou ou o arquivo é inválido! `Cancelado a seleção de Música...`")
-            message.channel.send({embed: noPick});
+            /*const noPick = new Discord.RichEmbed()
+            .setDescription("O tempo expirou ou o arquivo é inválido! `Cancelado a seleção de Música...`")*/
+            message.channel.send(`:shrug::skin-tone-2: | Passou-se **20** segundos e nenhuma resposta. Cancelado seleção da música!`);
             msgtoDelete.delete()
             return;
           }
@@ -125,15 +125,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     console.log(serverQueue.songs);
     if (playlist) return undefined;
       
-    else return message.channel.send({
-      embed: {
-    color: 0x4959e9,
-    description: `<:movie_play_light_green:447056994398896159> ** [${v.title}](${v.url}) ** foi adicionado por **${message.author.username} **`,
-    "thumbnail": {
-            "url": v.thumbnail
-    },
-}
-})
+    else return message.channel.send(`:notes: **${v.title}** foi adicionado por \`${message.author.username}\``);
           })  
          
 }
